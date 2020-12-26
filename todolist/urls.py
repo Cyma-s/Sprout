@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.todolist),
+    path('save', views.save),
 ]

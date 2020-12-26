@@ -14,8 +14,14 @@
         </div>
 
         <ul id="myUL">
-
+            {% autoescape off %}
+                {{ content }}
+            {% endautoescape %}
         </ul>
+        <button id = "submit-btn" name = "submit">Submit</button>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/query-string/6.13.7/index.js" integrity="sha512-XSg+BjaeSjxpaowArXk1f15k1kC3Buvl9fLjYIdXIQzjyUSdIiCu5aUJJTbOO/1359qwZ2yLsvvC6orB9lFxAQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="{% static "js/func.js" %}"></script>
 </html>

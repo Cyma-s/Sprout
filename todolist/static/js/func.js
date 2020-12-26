@@ -53,3 +53,23 @@ function newElement() {
     }
   }
 }
+
+const csrftoken = Cookies.get('csrftoken');
+document.querySelector('#submit-btn').addEventListener('click',
+    (ev)=> {
+      const list_content = document.querySelector('#myUL').innerHTML;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", '/save', true);
+      xhr.setRequestHeader('X-CSRFToken', csrftoken);
+      xhr.setRequestHeader('content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+        'content': list_content
+      }));
+      /*axios.post('/create', {
+        content : list_content,
+      }).then(function(response){
+        console.log(response);
+      }).catch(function(error){
+        console.log(error);
+      });*/
+    })
