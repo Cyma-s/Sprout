@@ -10,7 +10,7 @@
         <div id="myDIV" class="header">
             <h2>To Do List</h2>
             <input type="text" id="myInput" placeholder="내용을 입력하세요..">
-            <span onclick="newElement()" class="addBtn">Add</span>
+            <span onclick="newElement()" class="addBtn" id = "add-Btn">Add</span>
         </div>
 
         <ul id="myUL">
@@ -18,7 +18,6 @@
                 {{ content }}
             {% endautoescape %}
         </ul>
-        <button id = "submit-btn" name = "submit">Submit</button>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/query-string/6.13.7/index.js" integrity="sha512-XSg+BjaeSjxpaowArXk1f15k1kC3Buvl9fLjYIdXIQzjyUSdIiCu5aUJJTbOO/1359qwZ2yLsvvC6orB9lFxAQ==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
