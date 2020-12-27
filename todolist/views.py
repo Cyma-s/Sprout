@@ -23,14 +23,12 @@ def save(request):
     raw = request.read()
     data = json.loads(raw)
     list_content = data.get('content', '')
-
     one_list = List.objects.filter(id__exact=1)
     if len(one_list) == 0:
         list = List(text=list_content)
         list.save()
     else:
         one_list.update(text=list_content)
-
     responsedata = {
         'code': 200
     }

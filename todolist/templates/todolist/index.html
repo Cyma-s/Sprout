@@ -2,17 +2,31 @@
 <html>
     <head>
         {% load static %}
-        <!--<meta charset="utf-8">-->
         <title>To Do List</title>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
+    <header>
+        {% if user.is_authenticated %}
+            <div style="text-align: right;">
+                <button onclick="location.href = '/accounts/logout'">Log Out</button>
+            </div>
+        {% else %}
+            <div style="text-align: right;">
+                <button onclick="location.href = '/accounts/signup'">Sign up</button>
+                <button onclick="location.href = '/accounts/login'">Log in</button>
+            </div>
+        {% endif %}
+    </header>
         <div id="myDIV" class="header">
-            <h2>To Do List</h2>
+            {% if user.is_authenticated %}
+                <h2>{{ user.username }}'s To Do List</h2>
+            {% else %}
+                <h2>To Do List</h2>
+            {% endif %}
             <input type="text" id="myInput" placeholder="내용을 입력하세요..">
             <span onclick="newElement()" class="addBtn" id = "add-Btn">Add</span>
         </div>
-
         <ul id="myUL">
             {% autoescape off %}
                 {{ content }}
