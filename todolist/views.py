@@ -10,20 +10,22 @@ from .models import List
 
 
 def todolist(request):
-    do_list = List.objects.filter(id__exact=1)
+    current_user = request.user
+    do_list = List.objects.filter(id__exact=current_user.id)
     data = ''
     if len(do_list) == 0:
         pass
     else:
-        data = do_list.get(id=1).text
+        data = do_list.get(id=current_user.id).text
     return render(request, 'todolist/index.html', {'content': data})
 
 
 def save(request):
     raw = request.read()
+    current_user = request.user
     data = json.loads(raw)
     list_content = data.get('content', '')
-    one_list = List.objects.filter(id__exact=1)
+    one_list = List.objects.filter(id__exact=current_user.id)
     if len(one_list) == 0:
         list = List(text=list_content)
         list.save()
