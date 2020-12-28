@@ -68,4 +68,10 @@ const saveList = () => {
 }
 
 document.querySelector('#myUL').addEventListener('click', saveList)
-document.querySelector('#add-Btn').addEventListener('click', saveList)
+if (document.getElementById('add-Btn').disabled === false) {
+    document.querySelector('#add-Btn').addEventListener('click', saveList)
+}
+
+function loginAlert(){
+    alert("로그인이 필요합니다.");
+}

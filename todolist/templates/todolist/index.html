@@ -21,11 +21,13 @@
         <div id="myDIV" class="header">
             {% if user.is_authenticated %}
                 <h2>{{ user.username }}'s To Do List</h2>
+                <input type="text" id="myInput" placeholder="내용을 입력하세요.." />
+                <input type="button" onclick="newElement()" class="addBtn" id = "add-Btn" value="Add">
             {% else %}
                 <h2>To Do List</h2>
+                <input type="text" id="myInput" placeholder="내용을 입력하세요..">
+                <input type="button" onclick="loginAlert()" class="addBtn" id = "add-Btn" value="Add">
             {% endif %}
-            <input type="text" id="myInput" placeholder="내용을 입력하세요..">
-            <span onclick="newElement()" class="addBtn" id = "add-Btn">Add</span>
         </div>
         <ul id="myUL">
             {% autoescape off %}
